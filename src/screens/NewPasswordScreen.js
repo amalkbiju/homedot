@@ -14,7 +14,7 @@ import React from 'react';
 import Display from '../utils/Display';
 import Colors from '../utils/Colors';
 
-const ExistingUserScreen = ({navigation}) => {
+const NewPasswordScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <View
@@ -28,44 +28,68 @@ const ExistingUserScreen = ({navigation}) => {
         }}>
         <Text
           style={{
-            fontSize: 17,
+            fontSize: 16,
+            fontWeight: '800',
             color: Colors?.DEFAULT_BLUE,
-            fontWeight: '900',
           }}>
-          Password
+          Enter New Password
         </Text>
-        <View style={{width: '100%', height: '4%'}} />
 
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            height: '10%',
+          }}>
+          <View style={{width: '5%', height: '100%'}} />
+          <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>
+            New Password
+          </Text>
+        </View>
         <TextInput
-          placeholder="Enter Password"
-          placeholderTextColor={Colors?.DEFAULT_BLACK}
           style={{
             width: '90%',
             height: '16%',
             backgroundColor: Colors?.DEFAULT_WHITE,
-            borderRadius: 5,
             borderWidth: 0.5,
-            borderColor: Colors?.DEFAULT_BLACK,
+            borderRadius: 5,
           }}
+          placeholder={'Password'}
+          placeholderTextColor={Colors?.DEFAULT_LIGHTGREY}
+          secureTextEntry={true}
         />
 
         <View
           style={{
-            alignItems: 'flex-end',
-
-            width: '90%',
-            height: '7%',
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
+            height: '10%',
           }}>
-          <Text
-            onPress={() => navigation.navigate('ForgotPasswordScreen')}
-            style={{
-              fontSize: 14,
-              color: Colors?.DEFAULT_BLACK,
-            }}>
-            Forgot Password?
+          <View style={{width: '5%', height: '100%'}} />
+          <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>
+            Conform Password
           </Text>
         </View>
-        <View style={{width: '100%', height: '3%'}} />
+        <TextInput
+          style={{
+            width: '90%',
+            height: '16%',
+            backgroundColor: Colors?.DEFAULT_WHITE,
+            borderWidth: 0.5,
+            borderRadius: 5,
+          }}
+          placeholder={'Conform Password'}
+          placeholderTextColor={Colors?.DEFAULT_LIGHTGREY}
+          secureTextEntry={true}
+        />
+        <View
+          style={{
+            width: '100%',
+            height: '5%',
+          }}
+        />
         <TouchableOpacity
           style={{
             backgroundColor: Colors?.DEFAULT_BLUE,
@@ -74,7 +98,8 @@ const ExistingUserScreen = ({navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 5,
-          }}>
+          }}
+          onPress={() => navigation.navigate('NewPasswordScreen')}>
           <Text
             style={{
               color: Colors?.DEFAULT_WHITE,
@@ -84,34 +109,12 @@ const ExistingUserScreen = ({navigation}) => {
             Submit
           </Text>
         </TouchableOpacity>
-        <View style={{width: '100%', height: '1%'}} />
-        <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>OR</Text>
-        <View style={{width: '100%', height: '1%'}} />
-        <TouchableOpacity
-          style={{
-            backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '90%',
-            height: '16%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 5,
-          }}
-          onPress={() => navigation.navigate('ForgotPasswordOtpToLogin')}>
-          <Text
-            style={{
-              color: Colors?.DEFAULT_WHITE,
-              fontSize: 15,
-              fontWeight: '900',
-            }}>
-            OTP Login
-          </Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default ExistingUserScreen;
+export default NewPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {

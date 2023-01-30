@@ -4,5 +4,4 @@ export default {
   RUBIKBUBBLES: 'RubikBubbles-Regular',
   SONO: 'Sono-VariableFont_MONO,wght',
   BUBBLEBO: 'BUBBLEBO',
-  BUBBLEBOY2: 'BUBBLEBOY2',
 };

@@ -66,7 +66,10 @@ const ForgotPasswordScreen = ({navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 5,
-          }}>
+          }}
+          onPress={() =>
+            navigation.navigate('ForgotPasswordOtpVvarifiactionScreen')
+          }>
           <Text
             style={{
               color: Colors?.DEFAULT_WHITE,

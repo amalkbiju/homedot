@@ -7,6 +7,9 @@ import LoginOrRegisterScreen from '../screens/LoginOrRegisterScreen';
 import ExistingUserScreen from '../screens/ExistingUserScreen';
 import NonExstingUserOtpScreen from '../screens/NonExstingUserOtpScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import NewPasswordScreen from '../screens/NewPasswordScreen';
+import ForgotPasswordOtpVvarifiactionScreen from '../screens/ForgotPasswordOtpVvarifiactionScreen';
+import ForgotPasswordOtpToLogin from '../screens/ForgotPasswordOtpToLogin';
 const stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
@@ -28,6 +31,15 @@ const Navigator = () => {
         <stack.Screen
           name="ForgotPasswordScreen"
           component={ForgotPasswordScreen}
+        />
+        <stack.Screen
+          name="ForgotPasswordOtpVvarifiactionScreen"
+          component={ForgotPasswordOtpVvarifiactionScreen}
+        />
+        <stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
+        <stack.Screen
+          name="ForgotPasswordOtpToLogin"
+          component={ForgotPasswordOtpToLogin}
         />
       </stack.Navigator>
     </NavigationContainer>
