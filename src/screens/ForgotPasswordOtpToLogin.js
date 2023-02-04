@@ -18,20 +18,9 @@ const ForgotPasswordOtpToLogin = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <View
-        style={{
-          width: Display?.setWidth(90),
-          height: Display?.setWidth(85),
-          backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 5,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+        style={styles?.mainContainer}>
         <Text
-          style={{
-            fontSize: 17,
-            fontWeight: '800',
-            color: Colors?.DEFAULT_BLUE,
-          }}>
+          style={styles?.varificationText}>
           Verification required
         </Text>
         <View
@@ -41,10 +30,10 @@ const ForgotPasswordOtpToLogin = ({navigation}) => {
           }}
         />
         <Text
-          style={{width: '90%', fontSize: 15, color: Colors?.DEFAULT_GREAY}}>
+          style={styles?.otpSentText}>
           OTP Send to your Email / Phone Number ( ********** )
         </Text>
-        <View style={{width: '100%', height: '4%'}} />
+       
         <View style={styles?.textInputMainConatiner}>
           <TextInput
             style={styles?.textInput}
@@ -70,17 +59,19 @@ const ForgotPasswordOtpToLogin = ({navigation}) => {
             keyboardType="number-pad"
           />
         </View>
-        <View style={{width: '100%', height: '1%'}} />
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={styles?.dontReceiveOtpText}>Don't recevice OTP </Text>
-          <Text style={styles?.resentText}>Resent OTP</Text>
-        </View>
-        <View style={{width: '100%', height: '2%'}} />
+       
+        
         <TouchableOpacity
           style={styles?.button}
           onPress={() => navigation.navigate('NewPasswordScreen')}>
           <Text style={styles?.bottonText}>Varify</Text>
         </TouchableOpacity>
+        <View style={{width: '100%', height: '2%'}} />
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Text style={styles?.dontReceiveOtpText}>Don't recevice OTP </Text>
+          <Text style={styles?.resentText}>Resent OTP</Text>
+        </View>
+
       </View>
     </View>
   );
@@ -95,62 +86,63 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors?.DEFAULT_LIGHTGREY,
   },
-  otpMainContainer: {
-    width: Display?.setWidth(90),
-    height: Display?.setWidth(90),
+  mainContainer: {
+    width: Display?.setWidth(95),
+    height: Display?.setWidth(95),
     backgroundColor: Colors?.DEFAULT_WHITE,
+    borderRadius: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    elevation:10
   },
-  otpText: {
-    fontSize: 16,
-    color: Colors?.DEFAULT_GREAY,
-    fontWeight: '900',
+  varificationText: {
+    fontSize: 15,
+    color: Colors?.DEFAULT_BLACK,
+    fontWeight: '600',
   },
-  fourDigithText: {
-    fontSize: 13,
-    color: Colors?.DEFAULT_GREAY,
-    fontWeight: '900',
+  otpSentText: {
+    fontSize: 11,
+    color: Colors?.DEFAULT_BLACK,
   },
   textInputMainConatiner: {
-    width: '85%',
-    height: '19%',
-
+    width: '100%',
+    height: '25%',
     flexDirection: 'row',
     alignItems: 'center',
+
+    justifyContent: 'center'
   },
   textInput: {
     backgroundColor: Colors?.DEFAULT_WHITE,
-    width: '22%',
-    height: '90%',
+    width: Display?.setWidth(10),
+    height: Display?.setWidth(10),
     borderWidth: 0.7,
-    borderRadius: 5,
-    borderColor: Colors?.DEFAULT_BLACK,
+    borderRadius: 1,
+    borderColor: Colors?.DEFAULT_LIGHTGREY,
     color: Colors?.DEFAULT_BLACK,
-    fontSize: 23,
+    fontSize: 18,
   },
   dontReceiveOtpText: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 12,
+
     color: Colors?.DEFAULT_GREAY,
   },
   resentText: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 12,
+   
     color: Colors?.DEFAULT_BLUE,
   },
   button: {
-    width: '90%',
-    height: '15%',
+    width: '60%',
+    height: Display?.setWidth(10),
     backgroundColor: Colors?.DEFAULT_BLUE,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
   },
   bottonText: {
-    fontSize: 16,
-    fontWeight: '900',
     color: Colors?.DEFAULT_WHITE,
+    fontSize: 15,
+   
   },
 });

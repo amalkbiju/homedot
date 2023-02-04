@@ -19,22 +19,21 @@ const NewPasswordScreen = ({navigation}) => {
     <View style={styles?.container}>
       <View
         style={{
-          width: Display?.setWidth(90),
-          height: Display?.setWidth(85),
+          width: Display?.setWidth(95),
+          height: Display?.setWidth(95),
           backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 5,
+          borderRadius: 2,
           alignItems: 'center',
           justifyContent: 'center',
+          elevation:10
         }}>
         <Text
           style={{
-            fontSize: 16,
-            fontWeight: '800',
-            color: Colors?.DEFAULT_BLUE,
+            fontSize: 15, color: Colors?.DEFAULT_BLACK,fontWeight:'600'
           }}>
-          Enter New Password
+        Enter New Password
         </Text>
-
+<View style={{width:'100%',height:'3%'}}/>
         <View
           style={{
             flexDirection: 'row',
@@ -42,18 +41,20 @@ const NewPasswordScreen = ({navigation}) => {
             width: '100%',
             height: '10%',
           }}>
-          <View style={{width: '5%', height: '100%'}} />
-          <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>
+          <View style={{width: '15%', height: '100%'}} />
+          <Text style={{fontSize: 13, color: Colors?.DEFAULT_BLACK}}>
             New Password
           </Text>
         </View>
         <TextInput
           style={{
-            width: '90%',
-            height: '16%',
             backgroundColor: Colors?.DEFAULT_WHITE,
-            borderWidth: 0.5,
-            borderRadius: 5,
+            width: '70%',
+            height: Display?.setWidth(10),
+            borderColor: Colors?.DEFAULT_GREAY,
+            borderWidth: 0.4,
+            borderRadius: 3,
+            alignSelf:'center'
           }}
           placeholder={'Password'}
           placeholderTextColor={Colors?.DEFAULT_LIGHTGREY}
@@ -67,18 +68,20 @@ const NewPasswordScreen = ({navigation}) => {
             width: '100%',
             height: '10%',
           }}>
-          <View style={{width: '5%', height: '100%'}} />
-          <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>
+          <View style={{width: '15%', height: '100%'}} />
+          <Text style={{fontSize: 13, color: Colors?.DEFAULT_BLACK}}>
             Conform Password
           </Text>
         </View>
         <TextInput
           style={{
-            width: '90%',
-            height: '16%',
             backgroundColor: Colors?.DEFAULT_WHITE,
-            borderWidth: 0.5,
-            borderRadius: 5,
+            width: '70%',
+            height: Display?.setWidth(10),
+            borderColor: Colors?.DEFAULT_GREAY,
+            borderWidth: 0.4,
+            borderRadius: 3,
+            alignSelf:'center'
           }}
           placeholder={'Conform Password'}
           placeholderTextColor={Colors?.DEFAULT_LIGHTGREY}
@@ -87,17 +90,17 @@ const NewPasswordScreen = ({navigation}) => {
         <View
           style={{
             width: '100%',
-            height: '5%',
+            height: '7%',
           }}
         />
         <TouchableOpacity
           style={{
             backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '90%',
-            height: '16%',
+            width: '70%',
+            height: Display?.setWidth(10),
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 5,
+            borderRadius: 3,
           }}
           onPress={() => navigation.navigate('NewPasswordScreen')}>
           <Text

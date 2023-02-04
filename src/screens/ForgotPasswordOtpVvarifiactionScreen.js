@@ -19,12 +19,13 @@ const ForgotPasswordScreen = ({navigation}) => {
     <View style={styles?.container}>
       <View
         style={{
-          width: Display?.setWidth(90),
-          height: Display?.setWidth(85),
+          width: Display?.setWidth(95),
+          height: Display?.setWidth(95),
           backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 5,
+          borderRadius: 2,
           alignItems: 'center',
           justifyContent: 'center',
+          elevation:10
         }}>
         <Text
           style={{
@@ -98,12 +99,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors?.DEFAULT_LIGHTGREY,
   },
   otpMainContainer: {
-    width: Display?.setWidth(90),
-    height: Display?.setWidth(90),
+    width: Display?.setWidth(95),
+    height: Display?.setWidth(95),
     backgroundColor: Colors?.DEFAULT_WHITE,
+    borderRadius: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    elevation:10
   },
   otpText: {
     fontSize: 16,

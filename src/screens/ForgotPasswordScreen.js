@@ -19,53 +19,55 @@ const ForgotPasswordScreen = ({navigation}) => {
     <View style={styles?.container}>
       <View
         style={{
-          width: Display?.setWidth(90),
-          height: Display?.setWidth(85),
+          width: Display?.setWidth(95),
+          height: Display?.setWidth(95),
           backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 5,
+          borderRadius: 2,
           alignItems: 'center',
           justifyContent: 'center',
+          elevation:10
         }}>
         <Text
           style={{
-            fontSize: 17,
-            color: Colors?.DEFAULT_BLUE,
-            fontWeight: '900',
+            fontSize: 15,
+            color: Colors?.DEFAULT_BLACK,
+            fontWeight: '600',
           }}>
           Password Assistanse
         </Text>
-        <View style={{width: '100%', height: '3%'}} />
+        <View style={{width: '100%', height: '5%'}} />
         <Text
           style={{
-            fontSize: 16,
-            width: '90%',
+            fontSize: 11.5,
+            width: '70%',
             color: Colors?.DEFAULT_BLACK,
           }}>
           Enter the email address or mobile phone number associated with your
           HomeDot account.
         </Text>
-        <View style={{width: '100%', height: '3%'}} />
+        <View style={{width: '100%', height: '5%'}} />
         <TextInput
           placeholder="Email / Phone Number"
-          placeholderTextColor={Colors?.DEFAULT_BLACK}
+          placeholderTextColor={Colors?.DEFAULT_GREAY}
           style={{
-            width: '90%',
-            height: '16%',
             backgroundColor: Colors?.DEFAULT_WHITE,
-            borderRadius: 5,
-            borderWidth: 0.5,
-            borderColor: Colors?.DEFAULT_BLACK,
+            width: '70%',
+            height: Display?.setWidth(10),
+            borderColor: Colors?.DEFAULT_GREAY,
+            borderWidth: 0.4,
+            borderRadius: 3,
+            alignSelf:'center'
           }}
         />
         <View style={{width: '100%', height: '6%'}} />
         <TouchableOpacity
           style={{
             backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '90%',
-            height: '16%',
+            width: '70%',
+            height: Display?.setWidth(10),
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 5,
+            borderRadius: 3,
           }}
           onPress={() =>
             navigation.navigate('ForgotPasswordOtpVvarifiactionScreen')

@@ -18,48 +18,26 @@ const ExistingUserScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <View
-        style={{
-          width: Display?.setWidth(90),
-          height: Display?.setWidth(85),
-          backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 5,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+        style={styles?.mainContainer}>
         <Text
-          style={{
-            fontSize: 17,
-            color: Colors?.DEFAULT_BLUE,
-            fontWeight: '900',
-          }}>
+          style={styles?.passwordText}>
           Password
         </Text>
         <View style={{width: '100%', height: '4%'}} />
 
         <TextInput
           placeholder="Enter Password"
-          placeholderTextColor={Colors?.DEFAULT_BLACK}
-          style={{
-            width: '90%',
-            height: '16%',
-            backgroundColor: Colors?.DEFAULT_WHITE,
-            borderRadius: 5,
-            borderWidth: 0.5,
-            borderColor: Colors?.DEFAULT_BLACK,
-          }}
+          placeholderTextColor={Colors?.DEFAULT_GREAY}
+          style={styles?.textInput}
+          
         />
 
         <View
-          style={{
-            alignItems: 'flex-end',
-
-            width: '90%',
-            height: '7%',
-          }}>
+          style={styles?.forgotPasswordContainer}>
           <Text
             onPress={() => navigation.navigate('ForgotPasswordScreen')}
             style={{
-              fontSize: 14,
+              fontSize: 13,
               color: Colors?.DEFAULT_BLACK,
             }}>
             Forgot Password?
@@ -67,20 +45,9 @@ const ExistingUserScreen = ({navigation}) => {
         </View>
         <View style={{width: '100%', height: '3%'}} />
         <TouchableOpacity
-          style={{
-            backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '90%',
-            height: '16%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 5,
-          }}>
+          style={styles?.button}>
           <Text
-            style={{
-              color: Colors?.DEFAULT_WHITE,
-              fontSize: 15,
-              fontWeight: '900',
-            }}>
+            style={styles?.buttonText}>
             Submit
           </Text>
         </TouchableOpacity>
@@ -88,21 +55,10 @@ const ExistingUserScreen = ({navigation}) => {
         <Text style={{fontSize: 15, color: Colors?.DEFAULT_BLACK}}>OR</Text>
         <View style={{width: '100%', height: '1%'}} />
         <TouchableOpacity
-          style={{
-            backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '90%',
-            height: '16%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 5,
-          }}
+            style={styles?.button}
           onPress={() => navigation.navigate('ForgotPasswordOtpToLogin')}>
           <Text
-            style={{
-              color: Colors?.DEFAULT_WHITE,
-              fontSize: 15,
-              fontWeight: '900',
-            }}>
+           style={styles?.buttonText}>
             OTP Login
           </Text>
         </TouchableOpacity>
@@ -120,4 +76,46 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors?.DEFAULT_LIGHTGREY,
   },
+  mainContainer:{
+    width: Display?.setWidth(95),
+    height: Display?.setWidth(95),
+    backgroundColor: Colors?.DEFAULT_WHITE,
+    borderRadius: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation:10
+  },
+  passwordText:{
+    fontSize: 15,
+    color: Colors?.DEFAULT_BLACK,
+    fontWeight: '600',
+  },
+  textInput:{
+    backgroundColor: Colors?.DEFAULT_WHITE,
+            width: '70%',
+            height: Display?.setWidth(10),
+            borderColor: Colors?.DEFAULT_GREAY,
+            borderWidth: 0.4,
+            borderRadius: 3,
+            alignSelf:'center'
+  },
+  forgotPasswordContainer:{
+    alignItems: 'flex-end',
+
+            width: '70%',
+            height: '7%',
+  },
+  button:{
+    backgroundColor: Colors?.DEFAULT_BLUE,
+    width: '70%',
+    height: Display?.setWidth(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 3,
+  },
+  buttonText:{
+    color: Colors?.DEFAULT_WHITE,
+    fontSize: 15,
+   
+  }
 });

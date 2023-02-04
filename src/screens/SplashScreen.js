@@ -10,8 +10,8 @@ const SplashScreen = ({navigation}) => {
   }, []);
   return (
     <View style={styles?.container}>
-      <Text style={styles?.homeDotText}>Home.</Text>
-      <View style={{width: '100%', height: '1%'}} />
+      <Text style={styles?.homeDotText}>home.</Text>
+      
       <Text style={styles?.demandsText}>Your Home Demands</Text>
     </View>
   );
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
   },
   homeDotText: {
     fontFamily: Fonts?.BUBBLE_GUM_SANS,
-    fontSize: 70,
+    fontSize: 80,
 
     color: Colors?.DEFAULT_WHITE,
   },
   demandsText: {
-    fontSize: 16,
+    fontSize: 18,
     color: Colors?.DEFAULT_WHITE,
     fontWeight: '800',
   },

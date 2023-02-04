@@ -20,16 +20,17 @@ const LoginOrRegisterScreen = ({navigation}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex: 1}}>
       <SafeAreaView style={styles?.conatiner}>
-        <Text style={styles?.homeDotText}>Home.</Text>
-        <View style={{width: '100%', height: '5%'}} />
+        <Text style={styles?.homeDotText}>home.</Text>
+        <View style={{width: '100%', height: '7%'}} />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles?.textInpuTandButtonConatainer}>
             <TextInput
               placeholder="Email or Phone"
-              placeholderTextColor={Colors?.DEFAULT_BLACK}
+              placeholderTextColor={Colors?.DEFAULT_GREAY}
+              textAlign='center'
               style={styles?.textInput}
             />
-            <View style={{width: '100%', height: '28%'}} />
+            <View style={{width: '100%', height: '20%'}} />
             <TouchableOpacity
               style={styles?.continueButton}
               onPress={() => navigation?.navigate('NonExstingUserOtpScreen')}>
@@ -62,34 +63,36 @@ const styles = StyleSheet.create({
   },
   homeDotText: {
     fontFamily: Fonts?.BUBBLE_GUM_SANS,
-    fontSize: 70,
+    fontSize: 65,
     color: Colors?.DEFAULT_BLUE,
     alignSelf: 'center',
   },
   textInpuTandButtonConatainer: {
     width: Display?.setWidth(85),
-    height: Display?.setHeight(22),
+    height: Display?.setHeight(20),
   },
   textInput: {
     backgroundColor: Colors?.DEFAULT_WHITE,
-    width: '100%',
-    height: '36%',
-    borderColor: Colors?.DEFAULT_BLACK,
+    width: '80%',
+    height: Display?.setWidth(10),
+    borderColor: Colors?.DEFAULT_GREAY,
     borderWidth: 0.4,
     borderRadius: 4,
+    alignSelf:'center'
   },
   continueButton: {
     backgroundColor: Colors?.DEFAULT_BLUE,
-    width: '100%',
-    height: '36%',
+    width: '80%',
+    height: Display?.setWidth(10),
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf:'center'
   },
   continueButtonText: {
     fontSize: 16,
     color: Colors?.DEFAULT_WHITE,
-    fontWeight: 'bold',
+    
   },
   alreadyText: {
     fontSize: 15,
