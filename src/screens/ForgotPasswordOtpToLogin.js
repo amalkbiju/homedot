@@ -63,7 +63,8 @@ const ForgotPasswordOtpToLogin = ({navigation}) => {
         
         <TouchableOpacity
           style={styles?.button}
-          onPress={() => navigation.navigate('NewPasswordScreen')}>
+          // onPress={() => navigation.navigate('NewPasswordScreen')}
+          >
           <Text style={styles?.bottonText}>Varify</Text>
         </TouchableOpacity>
         <View style={{width: '100%', height: '2%'}} />
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
   otpSentText: {
     fontSize: 11,
     color: Colors?.DEFAULT_BLACK,
+    width:'60%'
   },
   textInputMainConatiner: {
     width: '100%',

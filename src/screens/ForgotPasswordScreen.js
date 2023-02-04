@@ -18,30 +18,14 @@ const ForgotPasswordScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
       <View
-        style={{
-          width: Display?.setWidth(95),
-          height: Display?.setWidth(95),
-          backgroundColor: Colors?.DEFAULT_WHITE,
-          borderRadius: 2,
-          alignItems: 'center',
-          justifyContent: 'center',
-          elevation:10
-        }}>
+        style={styles?.mainConatiner}>
         <Text
-          style={{
-            fontSize: 15,
-            color: Colors?.DEFAULT_BLACK,
-            fontWeight: '600',
-          }}>
+          style={styles?.passwordAssText}>
           Password Assistanse
         </Text>
         <View style={{width: '100%', height: '5%'}} />
         <Text
-          style={{
-            fontSize: 11.5,
-            width: '70%',
-            color: Colors?.DEFAULT_BLACK,
-          }}>
+          style={styles?.enterEmailorPhone}>
           Enter the email address or mobile phone number associated with your
           HomeDot account.
         </Text>
@@ -49,35 +33,16 @@ const ForgotPasswordScreen = ({navigation}) => {
         <TextInput
           placeholder="Email / Phone Number"
           placeholderTextColor={Colors?.DEFAULT_GREAY}
-          style={{
-            backgroundColor: Colors?.DEFAULT_WHITE,
-            width: '70%',
-            height: Display?.setWidth(10),
-            borderColor: Colors?.DEFAULT_GREAY,
-            borderWidth: 0.4,
-            borderRadius: 3,
-            alignSelf:'center'
-          }}
+          style={styles?.textInput}
         />
         <View style={{width: '100%', height: '6%'}} />
         <TouchableOpacity
-          style={{
-            backgroundColor: Colors?.DEFAULT_BLUE,
-            width: '70%',
-            height: Display?.setWidth(10),
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 3,
-          }}
+          style={styles?.button}
           onPress={() =>
             navigation.navigate('ForgotPasswordOtpVvarifiactionScreen')
           }>
           <Text
-            style={{
-              color: Colors?.DEFAULT_WHITE,
-              fontSize: 15,
-              fontWeight: '900',
-            }}>
+            style={styles?.buttonText}>
             Submit
           </Text>
         </TouchableOpacity>
@@ -95,4 +60,44 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors?.DEFAULT_LIGHTGREY,
   },
+  mainConatiner:{
+    width: Display?.setWidth(95),
+    height: Display?.setWidth(95),
+    backgroundColor: Colors?.DEFAULT_WHITE,
+    borderRadius: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation:10
+  },
+  passwordAssText:{
+    fontSize: 15,
+    color: Colors?.DEFAULT_BLACK,
+    fontWeight: '600',
+  },
+  enterEmailorPhone:{
+    fontSize: 11.5,
+    width: '60%',
+    color: Colors?.DEFAULT_BLACK,
+  },
+  textInput:{
+    backgroundColor: Colors?.DEFAULT_WHITE,
+    width: '60%',
+    height: Display?.setWidth(10),
+    borderColor: Colors?.DEFAULT_GREAY,
+    borderWidth: 0.4,
+    borderRadius: 3,
+    alignSelf:'center'
+  },
+  button:{
+    backgroundColor: Colors?.DEFAULT_BLUE,
+    width: '60%',
+    height: Display?.setWidth(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 3,
+  },
+  buttonText:{
+    color: Colors?.DEFAULT_WHITE,
+    fontSize: 13,
+  }
 });

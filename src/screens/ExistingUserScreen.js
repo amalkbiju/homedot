@@ -37,7 +37,7 @@ const ExistingUserScreen = ({navigation}) => {
           <Text
             onPress={() => navigation.navigate('ForgotPasswordScreen')}
             style={{
-              fontSize: 13,
+              fontSize: 12,
               color: Colors?.DEFAULT_BLACK,
             }}>
             Forgot Password?
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   textInput:{
     backgroundColor: Colors?.DEFAULT_WHITE,
-            width: '70%',
+            width: '60%',
             height: Display?.setWidth(10),
             borderColor: Colors?.DEFAULT_GREAY,
             borderWidth: 0.4,
@@ -102,20 +102,20 @@ const styles = StyleSheet.create({
   forgotPasswordContainer:{
     alignItems: 'flex-end',
 
-            width: '70%',
+            width: '60%',
             height: '7%',
   },
   button:{
-    backgroundColor: Colors?.DEFAULT_BLUE,
-    width: '70%',
+    width: '60%',
     height: Display?.setWidth(10),
+    backgroundColor: Colors?.DEFAULT_BLUE,
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 3,
   },
   buttonText:{
     color: Colors?.DEFAULT_WHITE,
-    fontSize: 15,
+    fontSize: 13,
    
   }
 });

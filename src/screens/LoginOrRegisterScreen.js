@@ -37,7 +37,7 @@ const LoginOrRegisterScreen = ({navigation}) => {
               <Text style={styles?.continueButtonText}>Continue</Text>
             </TouchableOpacity>
             <View style={{width: '100%', height: '1%'}} />
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View style={{flexDirection: 'row', alignItems: 'center',left:33}}>
               <Text style={styles?.alreadyText}>Already have account? </Text>
               <Text
                 style={styles?.siginInText}
@@ -90,18 +90,18 @@ const styles = StyleSheet.create({
     alignSelf:'center'
   },
   continueButtonText: {
-    fontSize: 16,
+    fontSize: 13,
     color: Colors?.DEFAULT_WHITE,
     
   },
   alreadyText: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 13,
+    
     color: Colors?.DEFAULT_GREAY,
   },
   siginInText: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 13,
+ 
     color: Colors?.DEFAULT_BLUE,
   },
 });
