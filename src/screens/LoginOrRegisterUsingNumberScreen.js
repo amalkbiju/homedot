@@ -14,7 +14,7 @@ import React from 'react';
 import Colors from '../utils/Colors';
 import Display from '../utils/Display';
 import Fonts from '../utils/Fonts';
-const LoginOrRegisterScreen = ({navigation}) => {
+const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -24,12 +24,28 @@ const LoginOrRegisterScreen = ({navigation}) => {
         <View style={{width: '100%', height: '7%'}} />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles?.textInpuTandButtonConatainer}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{width: '10%', height: '100%'}} />
+              <Text style={{fontSize: 14, color: Colors?.DEFAULT_GREAY}}>
+                Phone number
+              </Text>
+            </View>
+            <View style={{width: '100%', height: '1%'}} />
             <TextInput
-              placeholder="Email or Phone"
+              placeholder="+91"
               placeholderTextColor={Colors?.DEFAULT_GREAY}
-              textAlign='center'
               style={styles?.textInput}
             />
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={{height: '100%', width: '10%'}} />
+              <Text
+                style={styles?.siginInText}
+                onPress={() =>
+                  navigation?.navigate('LoginOrRegisterUsingEmailScreen')
+                }>
+                Login with Email Address
+              </Text>
+            </View>
             <View style={{width: '100%', height: '20%'}} />
             <TouchableOpacity
               style={styles?.continueButton}
@@ -37,7 +53,8 @@ const LoginOrRegisterScreen = ({navigation}) => {
               <Text style={styles?.continueButtonText}>Continue</Text>
             </TouchableOpacity>
             <View style={{width: '100%', height: '1%'}} />
-            <View style={{flexDirection: 'row', alignItems: 'center',left:33}}>
+            <View
+              style={{flexDirection: 'row', alignItems: 'center', left: 33}}>
               <Text style={styles?.alreadyText}>Already have account? </Text>
               <Text
                 style={styles?.siginInText}
@@ -52,7 +69,7 @@ const LoginOrRegisterScreen = ({navigation}) => {
   );
 };
 
-export default LoginOrRegisterScreen;
+export default LoginOrRegisterUsingNumberScreen;
 
 const styles = StyleSheet.create({
   conatiner: {
@@ -78,7 +95,7 @@ const styles = StyleSheet.create({
     borderColor: Colors?.DEFAULT_GREAY,
     borderWidth: 0.4,
     borderRadius: 4,
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   continueButton: {
     backgroundColor: Colors?.DEFAULT_BLUE,
@@ -87,21 +104,20 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    alignSelf:'center'
+    alignSelf: 'center',
   },
   continueButtonText: {
     fontSize: 13,
     color: Colors?.DEFAULT_WHITE,
-    
   },
   alreadyText: {
     fontSize: 13,
-    
+
     color: Colors?.DEFAULT_GREAY,
   },
   siginInText: {
     fontSize: 13,
- 
+
     color: Colors?.DEFAULT_BLUE,
   },
 });

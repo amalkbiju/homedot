@@ -5,13 +5,13 @@ import Fonts from '../utils/Fonts';
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('LoginOrRegisterScreen');
+      navigation.navigate('LoginOrRegisterUsingNumberScreen');
     }, 2500);
   }, []);
   return (
     <View style={styles?.container}>
       <Text style={styles?.homeDotText}>home.</Text>
-      
+
       <Text style={styles?.demandsText}>Your Home Demands</Text>
     </View>
   );
