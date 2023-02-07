@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import Colors from '../utils/Colors';
 import Fonts from '../utils/Fonts';
@@ -10,8 +10,16 @@ const SplashScreen = ({navigation}) => {
   }, []);
   return (
     <View style={styles?.container}>
-      <Text style={styles?.homeDotText}>home.</Text>
-
+      {/* <Text style={styles?.homeDotText}>home.</Text> */}
+      <Image
+        source={require('../assets/images/homedotText.png')}
+        style={{
+          width: '60%',
+          height: '12%',
+          tintColor: Colors?.DEFAULT_WHITE,
+        }}
+      />
+      <View style={{width: '100%', height: '2%'}} />
       <Text style={styles?.demandsText}>Your Home Demands</Text>
     </View>
   );

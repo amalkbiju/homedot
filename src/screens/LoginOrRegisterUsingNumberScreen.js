@@ -9,6 +9,7 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   SafeAreaView,
+  Image,
 } from 'react-native';
 import React from 'react';
 import Colors from '../utils/Colors';
@@ -20,8 +21,16 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex: 1}}>
       <SafeAreaView style={styles?.conatiner}>
-        <Text style={styles?.homeDotText}>home.</Text>
-        <View style={{width: '100%', height: '7%'}} />
+        {/* <Text style={styles?.homeDotText}>home.</Text> */}
+        <Image
+          source={require('../assets/images/homedotText.png')}
+          style={{
+            width: '45%',
+            height: '9%',
+            tintColor: Colors?.DEFAULT_BLUE,
+          }}
+        />
+        <View style={{width: '100%', height: '12%'}} />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles?.textInpuTandButtonConatainer}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -79,8 +88,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors?.DEFAULT_WHITE,
   },
   homeDotText: {
-    fontFamily: Fonts?.BUBBLE_GUM_SANS,
-    fontSize: 65,
+    fontFamily: Fonts?.BUBBLEBOY_REGULAR,
+    fontSize: 40,
     color: Colors?.DEFAULT_BLUE,
     alignSelf: 'center',
   },

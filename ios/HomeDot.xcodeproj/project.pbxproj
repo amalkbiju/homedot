@@ -18,6 +18,7 @@
 		0434708192CB47429A976617 /* RobotoMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85E9796EB8C442C88F3E2557 /* RobotoMono-VariableFont_wght.ttf */; };
 		516EBEA1FA9C449B8C696F63 /* RubikBubbles-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3F90DC7AEE541E2A0D42F5F /* RubikBubbles-Regular.ttf */; };
 		7B8383E7A2A24A039ECF2167 /* Sono-VariableFont_MONO,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 579F11BE1B854DADAF709C38 /* Sono-VariableFont_MONO,wght.ttf */; };
+		9C702ADC5D974D72BF767BCC /* Bubbleboy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88B79EE8BA09406E832718CC /* Bubbleboy-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		85E9796EB8C442C88F3E2557 /* RobotoMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "RobotoMono-VariableFont_wght.ttf"; path = "../src/assets/fonts/RobotoMono-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		B3F90DC7AEE541E2A0D42F5F /* RubikBubbles-Regular.ttf */ = {isa = PBXFileReference; name = "RubikBubbles-Regular.ttf"; path = "../src/assets/fonts/RubikBubbles-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		579F11BE1B854DADAF709C38 /* Sono-VariableFont_MONO,wght.ttf */ = {isa = PBXFileReference; name = "Sono-VariableFont_MONO,wght.ttf"; path = "../src/assets/fonts/Sono-VariableFont_MONO,wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		88B79EE8BA09406E832718CC /* Bubbleboy-Regular.ttf */ = {isa = PBXFileReference; name = "Bubbleboy-Regular.ttf"; path = "../src/assets/fonts/Bubbleboy-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				85E9796EB8C442C88F3E2557 /* RobotoMono-VariableFont_wght.ttf */,
 				B3F90DC7AEE541E2A0D42F5F /* RubikBubbles-Regular.ttf */,
 				579F11BE1B854DADAF709C38 /* Sono-VariableFont_MONO,wght.ttf */,
+				88B79EE8BA09406E832718CC /* Bubbleboy-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				0434708192CB47429A976617 /* RobotoMono-VariableFont_wght.ttf in Resources */,
 				516EBEA1FA9C449B8C696F63 /* RubikBubbles-Regular.ttf in Resources */,
 				7B8383E7A2A24A039ECF2167 /* Sono-VariableFont_MONO,wght.ttf in Resources */,
+				9C702ADC5D974D72BF767BCC /* Bubbleboy-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

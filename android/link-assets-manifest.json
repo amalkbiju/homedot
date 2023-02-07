@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/Bubbleboy-Regular.ttf",
+      "sha1": "3727f1967fcda4dd1701b59948cbd7318aeab218"
+    },
+    {
       "path": "src/assets/fonts/BubblegumSans-Regular.ttf",
       "sha1": "59d2f0ba7152be179faedefab35965d8cc28a94c"
     },
