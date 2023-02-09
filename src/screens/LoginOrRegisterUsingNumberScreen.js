@@ -58,7 +58,7 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
             <View style={{width: '100%', height: '20%'}} />
             <TouchableOpacity
               style={styles?.continueButton}
-              onPress={() => navigation?.navigate('NonExstingUserOtpScreen')}>
+              onPress={() => navigation?.navigate('UserOrProfessional')}>
               <Text style={styles?.continueButtonText}>Continue</Text>
             </TouchableOpacity>
             <View style={{width: '100%', height: '1%'}} />

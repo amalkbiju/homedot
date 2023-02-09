@@ -11,6 +11,9 @@ import NewPasswordScreen from '../screens/NewPasswordScreen';
 import ForgotPasswordOtpVvarifiactionScreen from '../screens/ForgotPasswordOtpVvarifiactionScreen';
 import ForgotPasswordOtpToLogin from '../screens/ForgotPasswordOtpToLogin';
 import LoginOrRegisterUsingEmailScreen from '../screens/LoginOrRegisterUsingEmailScreen';
+import UserOrProfessional from '../screens/UserOrProfessional';
+import UserRegistrationScreen from '../screens/UserRegistrationScreen';
+import ProfessionalRegisterScreen from '../screens/ProfessionalRegisterScreen';
 const stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
@@ -45,6 +48,18 @@ const Navigator = () => {
         <stack.Screen
           name="LoginOrRegisterUsingEmailScreen"
           component={LoginOrRegisterUsingEmailScreen}
+        />
+        <stack.Screen
+          name="UserOrProfessional"
+          component={UserOrProfessional}
+        />
+        <stack.Screen
+          name="UserRegistrationScreen"
+          component={UserRegistrationScreen}
+        />
+        <stack.Screen
+          name="ProfessionalRegisterScreen"
+          component={ProfessionalRegisterScreen}
         />
       </stack.Navigator>
     </NavigationContainer>
