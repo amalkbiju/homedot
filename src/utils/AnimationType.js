@@ -96,7 +96,7 @@ export default function AnimatedTyping(props) {
 
 let styles = StyleSheet.create({
   text: {
-    color: Colors?.DEFAULT_GREAY,
+    color: Colors?.DEFAULT_WHITE,
     fontSize: 18,
     alignSelf: 'center',
     width: Display?.setWidth(75),

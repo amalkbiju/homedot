@@ -9,7 +9,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
-
+ import com.facebook.react.bridge.JSIModulePackage; 
+  import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -32,7 +33,10 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
-
+ @Override     
+           protected JSIModulePackage getJSIModulePackage() {       
+              return new ReanimatedJSIModulePackage(); // <- add      }
+           }
         @Override
         protected boolean isNewArchEnabled() {
           return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
