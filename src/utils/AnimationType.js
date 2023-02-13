@@ -89,7 +89,7 @@ export default function AnimatedTyping(props) {
   return (
     <Text style={styles.text}>
       {text}
-      <Text style={{color: cursorColor, fontSize: 20}}>|</Text>
+      <Text style={{color: Colors?.DEFAULT_WHITE, fontSize: 20}}>|</Text>
     </Text>
   );
 }

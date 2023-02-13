@@ -76,7 +76,11 @@ const UserOrProfessional = ({navigation}) => {
                 <View style={{width: '100%', height: '5%'}} />
 
                 {userTextComplete ? (
-                  <TouchableOpacity style={styles?.animatedViewBecomeButton}>
+                  <TouchableOpacity
+                    style={styles?.animatedViewBecomeButton}
+                    onPress={() =>
+                      navigation?.navigate('UserRegistrationScreen')
+                    }>
                     <Text style={styles?.animatedViewBecomeButtonText}>
                       Become a user
                     </Text>
@@ -102,12 +106,51 @@ const UserOrProfessional = ({navigation}) => {
       {userButtomClick ? null : (
         <TouchableOpacity
           onPress={() => {
-            animation.value = {width: 300, height: 450};
+            animation.value = {
+              width: Display?.setWidth(85),
+              height: Display?.setHeight(80),
+            };
             setProfessionalButtonClick(true);
           }}>
           <Animated.View style={[styles.box, animationStyle]}>
-            {userButtomClick ? (
-              <Text>eeehfhfhfhfhfh</Text>
+            {ProfessionalButtonClick ? (
+              <View>
+                <View
+                  style={{
+                    width: '100%',
+                    height: '10%',
+                  }}
+                />
+                <View style={styles?.animationViewIconContainer}>
+                  <FontAwesome5
+                    name="user-cog"
+                    size={60}
+                    color={Colors?.DEFAULT_WHITE}
+                  />
+                </View>
+                <Text style={styles?.animationViewHeaderText}>
+                  Professional
+                </Text>
+                <View style={styles?.animationTypingTextConatiner}>
+                  <AnimatedTyping
+                    text={['If you are an architect, designer, contractor etc']}
+                    onComplete={() => setUserTextComplete(true)}
+                  />
+                </View>
+                <View style={{width: '100%', height: '5%'}} />
+
+                {userTextComplete ? (
+                  <TouchableOpacity
+                    style={styles?.animatedViewBecomeButton}
+                    onPress={() =>
+                      navigation?.navigate('ProfessionalRegisterScreen')
+                    }>
+                    <Text style={styles?.animatedViewBecomeButtonText}>
+                      Become a Professional
+                    </Text>
+                  </TouchableOpacity>
+                ) : null}
+              </View>
             ) : (
               <View>
                 <FontAwesome5
@@ -246,6 +289,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
+    elevation: 20,
   },
   animationViewIconContainer: {
     width: '100%',
