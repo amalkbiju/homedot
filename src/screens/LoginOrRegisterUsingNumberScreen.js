@@ -11,26 +11,32 @@ import {
   SafeAreaView,
   Image,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Colors from '../utils/Colors';
 import Display from '../utils/Display';
 import Fonts from '../utils/Fonts';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import CountryFlagServices from '../services/CountryFlagServices';
+import CountryCode from '../contants/CountryCode';
 const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
+  const [selectedCountry, setSelectedCountry] = useState(
+    CountryCode.find(country => country.name === 'India'),
+  );
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex: 1}}>
       <SafeAreaView style={styles?.conatiner}>
         {/* <Text style={styles?.homeDotText}>home.</Text> */}
-        <Image
+        {/* <Image
           source={require('../assets/images/homedotText.png')}
           style={{
             width: '45%',
             height: '9%',
             tintColor: Colors?.DEFAULT_BLUE,
           }}
-        />
-        <View style={{width: '100%', height: '12%'}} />
+        /> */}
+        <View style={{width: '100%', height: '8%'}} />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles?.textInpuTandButtonConatainer}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -40,11 +46,48 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
               </Text>
             </View>
             <View style={{width: '100%', height: '1%'}} />
-            <TextInput
+            {/* <TextInput
               placeholder="+91"
               placeholderTextColor={Colors?.DEFAULT_GREAY}
               style={styles?.textInput}
-            />
+            /> */}
+            <View
+              style={{
+                width: '80%',
+                height: Display?.setWidth(10),
+
+                alignSelf: 'center',
+                borderRadius: 4,
+                flexDirection: 'row',
+                alignItems: 'center',
+                borderWidth: 0.3,
+                borderColor: Colors?.DEFAULT_GREAY,
+              }}>
+              <TouchableOpacity
+                style={{
+                  width: '25%',
+                  height: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Image
+                  source={{
+                    uri: CountryFlagServices?.getFlagIcon(selectedCountry.code),
+                  }}
+                  style={{height: 18, width: 20}}
+                />
+                <Text>{selectedCountry?.dial_code}</Text>
+                <MaterialCommunityIcons />
+              </TouchableOpacity>
+              <TextInput
+                style={{
+                  width: '75%',
+                  height: '100%',
+                  color: Colors?.DEFAULT_BLACK,
+                }}
+              />
+            </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <View style={{height: '100%', width: '10%'}} />
               <Text
