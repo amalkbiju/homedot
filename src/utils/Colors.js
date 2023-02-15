@@ -3,5 +3,5 @@ export default {
   DEFAULT_WHITE: '#FFFFFF',
   DEFAULT_BLACK: 'black',
   DEFAULT_GREAY: 'grey',
-  DEFAULT_LIGHTGREY: '#C2C2CB',
+  DEFAULT_LIGHTGREY: '#dde0e3',
 };
