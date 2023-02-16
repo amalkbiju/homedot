@@ -62,7 +62,6 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View style={{width: '10%', height: '100%'}} />
               <Text style={{fontSize: 14, color: Colors?.DEFAULT_GREAY}}>
                 Phone number
               </Text>
@@ -87,7 +86,7 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
                   source={{
                     uri: CountryFlagServices?.getFlagIcon(selectedCountry.code),
                   }}
-                  style={{height: 18, width: 20}}
+                  style={{height: 18, width: 20, marginLeft: 5}}
                 />
                 <Text style={styles?.countryDropDownDialCodeText}>
                   {selectedCountry?.dial_code}
@@ -124,7 +123,11 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
               </View>
             ) : null}
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View style={{height: '100%', width: Display?.setWidth(17.5)}} />
+              <View
+                style={{
+                  height: '100%',
+                }}
+              />
               <Text
                 style={styles?.siginInText}
                 onPress={() =>
@@ -140,8 +143,7 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
               <Text style={styles?.continueButtonText}>Continue</Text>
             </TouchableOpacity>
             <View style={{width: '100%', height: '1%'}} />
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', left: 33}}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Text style={styles?.alreadyText}>Already have account? </Text>
               <Text
                 style={styles?.siginInText}
@@ -244,5 +246,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors?.DEFAULT_BLACK,
     paddingLeft: 2,
+    marginLeft: 2,
   },
 });
