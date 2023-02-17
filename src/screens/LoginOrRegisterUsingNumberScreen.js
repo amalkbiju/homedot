@@ -50,14 +50,14 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
           closeDropdown(pageX, pageY)
         }>
         {/* <Text style={styles?.homeDotText}>home.</Text> */}
-        {/* <Image
+        <Image
           source={require('../assets/images/homedotText.png')}
           style={{
             width: '45%',
             height: '9%',
             tintColor: Colors?.DEFAULT_BLUE,
           }}
-        /> */}
+        />
         <View style={{width: '100%', height: '8%'}} />
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>

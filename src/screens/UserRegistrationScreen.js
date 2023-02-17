@@ -9,21 +9,18 @@ import React from 'react';
 import Colors from '../utils/Colors';
 import Display from '../utils/Display';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-const UserRegistrationScreen = () => {
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+const UserRegistrationScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
-      <View
-        style={{
-          width: Display?.setWidth(100),
-          height: '10%',
-        }}>
+      <View style={styles?.headerMianConatiner}>
         <AntDesign
           name="left"
           size={23}
           style={{
             paddingLeft: 2,
           }}
+          onPress={() => navigation?.goBack()}
         />
         <View
           style={{
@@ -31,14 +28,7 @@ const UserRegistrationScreen = () => {
             height: '10%',
           }}
         />
-        <Text
-          style={{
-            fontSize: 22,
-            color: Colors?.DEFAULT_GREAY,
-            alignSelf: 'center',
-          }}>
-          Sign Up
-        </Text>
+        <Text style={styles?.signupText}>Sign Up</Text>
       </View>
       <View
         style={{
@@ -49,25 +39,14 @@ const UserRegistrationScreen = () => {
           justifyContent: 'center',
         }}>
         <TextInput
-          placeholder="First Name"
+          placeholder="My Name"
           placeholderTextColor={Colors?.DEFAULT_GREAY}
           style={styles?.textInput}
         />
         <View
           style={{
             width: '100%',
-            height: '7%',
-          }}
-        />
-        <TextInput
-          placeholder="Last Name"
-          placeholderTextColor={Colors?.DEFAULT_GREAY}
-          style={styles?.textInput}
-        />
-        <View
-          style={{
-            width: '100%',
-            height: '7%',
+            height: '8%',
           }}
         />
         <TextInput
@@ -78,7 +57,7 @@ const UserRegistrationScreen = () => {
         <View
           style={{
             width: '100%',
-            height: '7%',
+            height: '8%',
           }}
         />
         <TextInput
@@ -89,7 +68,7 @@ const UserRegistrationScreen = () => {
         <View
           style={{
             width: '100%',
-            height: '7%',
+            height: '8%',
           }}
         />
         <View style={styles?.locatonContainer}>
@@ -102,13 +81,17 @@ const UserRegistrationScreen = () => {
             }}
           />
           <View style={styles?.locatonIconContainer}>
-            <Ionicons name="locate" size={27} color={Colors?.DEFAULT_BLUE} />
+            <MaterialIcons
+              name="my-location"
+              size={25}
+              color={Colors?.DEFAULT_BLUE}
+            />
           </View>
         </View>
         <View
           style={{
             width: '100%',
-            height: '7%',
+            height: '8%',
           }}
         />
         <TouchableOpacity style={styles?.button}>
@@ -159,5 +142,14 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 15,
     color: Colors?.DEFAULT_WHITE,
+  },
+  headerMianConatiner: {
+    width: Display?.setWidth(100),
+    height: '10%',
+  },
+  signupText: {
+    fontSize: 25,
+    color: Colors?.DEFAULT_GREAY,
+    alignSelf: 'center',
   },
 });
