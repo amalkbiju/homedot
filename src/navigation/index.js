@@ -14,6 +14,7 @@ import LoginOrRegisterUsingEmailScreen from '../screens/LoginOrRegisterUsingEmai
 import UserOrProfessional from '../screens/UserOrProfessional';
 import UserRegistrationScreen from '../screens/UserRegistrationScreen';
 import ProfessionalRegisterScreen from '../screens/ProfessionalRegisterScreen';
+import ProfessionalLocationScreen from '../screens/locationscreens/ProfessionalLocationScreen';
 const stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
@@ -60,6 +61,10 @@ const Navigator = () => {
         <stack.Screen
           name="ProfessionalRegisterScreen"
           component={ProfessionalRegisterScreen}
+        />
+        <stack.Screen
+          name="ProfessionalLocationScreen"
+          component={ProfessionalLocationScreen}
         />
       </stack.Navigator>
     </NavigationContainer>

@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   TouchableWithoutFeedback,
   Keyboard,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import Colors from '../utils/Colors';
@@ -18,6 +19,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const ProfessionalRegisterScreen = ({navigation}) => {
   return (
     <KeyboardAvoidingView
+      enabled
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex: 1}}>
       <SafeAreaView style={styles?.container}>
@@ -39,119 +41,127 @@ const ProfessionalRegisterScreen = ({navigation}) => {
           <Text style={styles?.signupText}>Sign Up</Text>
         </View>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View
-            style={{
-              width: Display?.setWidth(100),
-              height: '90%',
-              backgroundColor: Colors?.DEFAULT_WHITE,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TextInput
-              placeholder="Professional Type"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-
+          <ScrollView>
             <View
               style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="My Name"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="Mobile Number"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="Email"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="Professional Category"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="Year Of Experience"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.textInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TextInput
-              placeholder="Year Of Experience"
-              placeholderTextColor={Colors?.DEFAULT_GREAY}
-              style={styles?.descriptionTextInput}
-            />
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <View style={styles?.locatonContainer}>
+                width: Display?.setWidth(100),
+                height: Display?.setHeight(88),
+                backgroundColor: Colors?.DEFAULT_WHITE,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               <TextInput
-                placeholder="Location"
+                placeholder="Professional Type"
                 placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+
+              <View
                 style={{
-                  width: '80%',
-                  height: '100%',
+                  width: '100%',
+                  height: '3%',
                 }}
               />
-              <View style={styles?.locatonIconContainer}>
-                <MaterialIcons
-                  name="my-location"
-                  size={25}
-                  color={Colors?.DEFAULT_BLUE}
-                />
+              <TextInput
+                placeholder="My Name"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TextInput
+                placeholder="Mobile Number"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TextInput
+                placeholder="Email"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TextInput
+                placeholder="Professional Category"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TextInput
+                placeholder="Year Of Experience"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.textInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TextInput
+                placeholder="Year Of Experience"
+                placeholderTextColor={Colors?.DEFAULT_GREAY}
+                style={styles?.descriptionTextInput}
+              />
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <View style={styles?.locatonContainer}>
+                <View
+                  style={{
+                    width: '80%',
+                    height: '100%',
+                    justifyContent: 'center',
+                    paddingLeft: 5,
+                  }}>
+                  <Text>Location</Text>
+                </View>
+                <View style={styles?.locatonIconContainer}>
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate('ProfessionalLocationScreen')
+                    }>
+                    <MaterialIcons
+                      name="my-location"
+                      size={25}
+                      color={Colors?.DEFAULT_BLUE}
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
+              <View
+                style={{
+                  width: '100%',
+                  height: '3%',
+                }}
+              />
+              <TouchableOpacity style={styles?.button}>
+                <Text style={styles?.buttonText}>Sign up</Text>
+              </TouchableOpacity>
             </View>
-            <View
-              style={{
-                width: '100%',
-                height: '3%',
-              }}
-            />
-            <TouchableOpacity style={styles?.button}>
-              <Text style={styles?.buttonText}>Sign up</Text>
-            </TouchableOpacity>
-          </View>
+          </ScrollView>
         </TouchableWithoutFeedback>
       </SafeAreaView>
     </KeyboardAvoidingView>
