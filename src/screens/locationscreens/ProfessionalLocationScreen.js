@@ -4,6 +4,7 @@ import Colors from '../../utils/Colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Display from '../../utils/Display';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MapView from 'react-native-maps';
 const ProfessionalLocationScreen = () => {
   return (
     <View style={styles?.container}>
@@ -42,7 +43,16 @@ const ProfessionalLocationScreen = () => {
             width: Display?.setWidth(80),
             height: Display?.setWidth(80),
             backgroundColor: Colors?.DEFAULT_LIGHTGREY,
-          }}></View>
+          }}>
+          <MapView
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
+        </View>
         <View style={styles?.locatonContainer}>
           <View
             style={{
