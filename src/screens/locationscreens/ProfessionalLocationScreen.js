@@ -15,10 +15,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MapView, {Marker} from 'react-native-maps';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Geolocation from '@react-native-community/geolocation';
+import Geocoder from 'react-native-geocoding';
 const ProfessionalLocationScreen = ({navigation}) => {
   const [latitude, setLatitude] = useState(10.0078598);
   const [longitude, setLongitude] = useState(76.3237177);
   const [locationPermissionError, setLocationPermissionError] = useState(null);
+
   const currentLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -37,6 +39,10 @@ const ProfessionalLocationScreen = ({navigation}) => {
     Geolocation.getCurrentPosition(data => {
       console?.log(data.coords.latitude);
       console?.log('longitude', data.coords.longitude);
+      console?.log('location name', data);
+      setLatitude(data.coords.latitude);
+      setLongitude(data.coords.longitude);
+      Map();
     });
   };
   const Map = () => {
@@ -62,6 +68,16 @@ const ProfessionalLocationScreen = ({navigation}) => {
       </MapView>
     );
   };
+  const currentLocationName = () => {
+    Geocoder.init('AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8');
+    Geocoder.from(latitude, longitude)
+      .then(json => {
+        var addressComponent = json.results[0].formatted_address;
+        console.log(addressComponent);
+      })
+      .catch(error => console.warn(error));
+  };
+
   return (
     <View style={styles?.container}>
       <View style={styles?.headerConatiner}>
@@ -148,7 +164,11 @@ const ProfessionalLocationScreen = ({navigation}) => {
             }}
           /> */}
           <View style={styles?.locatonIconContainer}>
-            <TouchableOpacity onPress={() => currentLocationPermission()}>
+            <TouchableOpacity
+              onPress={() => {
+                currentLocationPermission();
+                currentLocationName();
+              }}>
               <MaterialIcons
                 name="my-location"
                 size={25}
@@ -240,15 +260,15 @@ const ProfessionalLocationScreen = ({navigation}) => {
           <GooglePlacesAutocomplete
             placeholder="Search"
             fetchDetails={true}
-            styles={{}}
             onPress={(data, details = null) => {
               // 'details' is provided when fetchDetails = true
-              console.log(data, details);
+              // console.log(data, details);
               // setCoordinatePins({
               //   latitude:details?.
               // })
               setLatitude(details?.geometry?.location?.lat);
               setLongitude(details?.geometry?.location?.lng);
+              currentLocationName();
               Map();
             }}
             query={{
