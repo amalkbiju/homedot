@@ -20,7 +20,7 @@ const ProfessionalLocationScreen = ({navigation}) => {
   const [latitude, setLatitude] = useState(10.0078598);
   const [longitude, setLongitude] = useState(76.3237177);
   const [locationPermissionError, setLocationPermissionError] = useState(null);
-
+  const [placeSearchLayout, setPlaceSearchLayout] = useState({});
   const currentLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -148,6 +148,64 @@ const ProfessionalLocationScreen = ({navigation}) => {
             height: '6%',
           }}
         />
+        <View style={styles?.googlePlaceAutoComplae}>
+          <GooglePlacesAutocomplete
+            placeholder="Search"
+            fetchDetails={true}
+            onPress={(data, details = null) => {
+              // 'details' is provided when fetchDetails = true
+              // console.log(data, details);
+              // setCoordinatePins({
+              //   latitude:details?.
+              // })
+              setLatitude(details?.geometry?.location?.lat);
+              setLongitude(details?.geometry?.location?.lng);
+              currentLocationName();
+              Map();
+            }}
+            query={{
+              key: 'AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8',
+              language: 'en',
+            }}
+            styles={{
+              textInputContainer: {
+                marginTop: 5,
+              },
+              textInput: {
+                height: Display?.setWidth(10),
+                color: 'black',
+                fontSize: 16,
+                backgroundColor: '#ddd',
+                borderColor: Colors?.DEFAULT_BLACK,
+                borderWidth: 0.5,
+              },
+              predefinedPlacesDescription: {
+                color: '#1faadb',
+              },
+              listView: {
+                position: 'relative',
+                zIndex: 3,
+                marginTop: 0,
+                padding: 0,
+              },
+              row: {
+                backgroundColor: '#FFFFFF',
+                height: Display?.setWidth(10),
+                flexDirection: 'row',
+              },
+              separator: {
+                height: 0.5,
+                backgroundColor: Colors?.DEFAULT_BLACK,
+              },
+              description: {},
+              loader: {
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                height: 20,
+              },
+            }}
+          />
+        </View>
         <View style={styles?.locatonContainer}>
           {/* <GooglePlacesAutocomplete
             style={{
@@ -251,32 +309,6 @@ const ProfessionalLocationScreen = ({navigation}) => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{
-            position: 'absolute',
-            borderWidth: 1,
-            width: Display?.setWidth(100),
-          }}>
-          <GooglePlacesAutocomplete
-            placeholder="Search"
-            fetchDetails={true}
-            onPress={(data, details = null) => {
-              // 'details' is provided when fetchDetails = true
-              // console.log(data, details);
-              // setCoordinatePins({
-              //   latitude:details?.
-              // })
-              setLatitude(details?.geometry?.location?.lat);
-              setLongitude(details?.geometry?.location?.lng);
-              currentLocationName();
-              Map();
-            }}
-            query={{
-              key: 'AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8',
-              language: 'en',
-            }}
-          />
-        </View>
       </View>
     </View>
   );
@@ -311,5 +343,10 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  googlePlaceAutoComplae: {
+    width: Display?.setWidth(90),
+    position: 'absolute',
+    zIndex: 3,
   },
 });
