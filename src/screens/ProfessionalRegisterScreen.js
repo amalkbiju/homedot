@@ -10,13 +10,61 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
+  PermissionsAndroid,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Colors from '../utils/Colors';
 import Display from '../utils/Display';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Geolocation from '@react-native-community/geolocation';
+import Geocoder from 'react-native-geocoding';
+import {useDispatch, useSelector} from 'react-redux';
+import GeneralAction from '../redux/action/GeneralAction';
 const ProfessionalRegisterScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    currentLocationPermission();
+    currentLocationName();
+  }, [currentLocationPermission, currentLocationName]);
+  const currentLocationPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Location Access Required',
+        message: 'HomeDot App needs to Access your location',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      currentLocation();
+    } else {
+      setLocationPermissionError('Allow permission');
+    }
+  };
+  const currentLocation = () => {
+    Geolocation.getCurrentPosition(data => {
+      console?.log(data.coords.latitude);
+      console?.log('longitude', data.coords.longitude);
+      console?.log('location name', data);
+      dispatch(GeneralAction?.setUserLocationLatitue(data.coords.latitude));
+      dispatch(GeneralAction?.setUserLocationLongitue(data.coords.longitude));
+    });
+  };
+  const latitude = useSelector(
+    state => state?.generalState?.userLocationLatitue,
+  );
+  const longitude = useSelector(
+    state => state?.generalState?.userLocationLongitue,
+  );
+  const currentLocationName = () => {
+    Geocoder.init('AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8');
+    Geocoder.from(latitude, longitude)
+      .then(json => {
+        var addressComponent = json.results[0].formatted_address;
+        console.log('current loaction name', addressComponent);
+      })
+      .catch(error => console.warn(error));
+  };
   return (
     <KeyboardAvoidingView
       enabled
