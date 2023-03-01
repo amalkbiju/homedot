@@ -25,7 +25,7 @@ const ProfessionalRegisterScreen = ({navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     currentLocationPermission();
-    currentLocationName();
+    // currentLocationName();
   }, [currentLocationPermission, currentLocationName]);
   const currentLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(
@@ -56,15 +56,22 @@ const ProfessionalRegisterScreen = ({navigation}) => {
   const longitude = useSelector(
     state => state?.generalState?.userLocationLongitue,
   );
+
+  console?.log('pro screen lan', latitude);
+  console?.log('pro screen lon', longitude);
+
   const currentLocationName = () => {
     Geocoder.init('AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8');
     Geocoder.from(latitude, longitude)
       .then(json => {
         var addressComponent = json.results[0].formatted_address;
-        console.log('current loaction name', addressComponent);
+        // console.log('current loaction name', addressComponent);
+        dispatch(GeneralAction?.setLocationName(addressComponent));
       })
       .catch(error => console.warn(error));
   };
+  const locationName = useSelector(state => state?.generalState?.locationName);
+  console?.log('pro screen current loctaion name', locationName);
   return (
     <KeyboardAvoidingView
       enabled
@@ -176,29 +183,24 @@ const ProfessionalRegisterScreen = ({navigation}) => {
                   height: '3%',
                 }}
               />
-              <View style={styles?.locatonContainer}>
-                <View
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('ProfessionalLocationScreen')
+                }
+                style={styles?.locationButton}>
+                <Text style={styles?.locationButtonText} numberOfLines={1}>
+                  {locationName}
+                </Text>
+
+                <MaterialIcons
+                  name="my-location"
+                  size={25}
+                  color={Colors?.DEFAULT_BLUE}
                   style={{
-                    width: '80%',
-                    height: '100%',
-                    justifyContent: 'center',
-                    paddingLeft: 5,
-                  }}>
-                  <Text>Location</Text>
-                </View>
-                <View style={styles?.locatonIconContainer}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('ProfessionalLocationScreen')
-                    }>
-                    <MaterialIcons
-                      name="my-location"
-                      size={25}
-                      color={Colors?.DEFAULT_BLUE}
-                    />
-                  </TouchableOpacity>
-                </View>
-              </View>
+                    paddingRight: 4,
+                  }}
+                />
+              </TouchableOpacity>
               <View
                 style={{
                   width: '100%',
@@ -272,5 +274,20 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1.2,
     borderColor: Colors?.DEFAULT_LIGHTGREY,
+  },
+  locationButton: {
+    flexDirection: 'row',
+    width: Display?.setWidth(70),
+    height: Display?.setWidth(10),
+    alignSelf: 'center',
+    borderRadius: 4,
+    borderWidth: 1.2,
+    borderColor: Colors?.DEFAULT_LIGHTGREY,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  locationButtonText: {
+    width: '80%',
+    paddingLeft: 5,
   },
 });

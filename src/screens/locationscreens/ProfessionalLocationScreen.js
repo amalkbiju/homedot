@@ -53,7 +53,7 @@ const ProfessionalLocationScreen = ({navigation}) => {
   const currentLocation = () => {
     Geolocation.getCurrentPosition(data => {
       console?.log(data.coords.latitude);
-      console?.log('longitude', data.coords.longitude);
+      // console?.log('longitude', data.coords.longitude);
       console?.log('location name', data);
       dispatch(GeneralAction?.setUserLocationLatitue(data.coords.latitude));
       dispatch(GeneralAction?.setUserLocationLongitue(data.coords.longitude));
@@ -67,8 +67,10 @@ const ProfessionalLocationScreen = ({navigation}) => {
   const longitude = useSelector(
     state => state?.generalState?.userLocationLongitue,
   );
+  const locationName = useSelector(state => state?.generalState?.locationName);
   console?.log('redux latitude', latitude);
   console?.log('redux longitude', longitude);
+  console?.log('redux location name', locationName);
   const Map = () => {
     return (
       <MapView
@@ -97,7 +99,8 @@ const ProfessionalLocationScreen = ({navigation}) => {
     Geocoder.from(latitude, longitude)
       .then(json => {
         var addressComponent = json.results[0].formatted_address;
-        console.log('current loaction name', addressComponent);
+        // console.log('current loaction name', addressComponent);
+        dispatch(GeneralAction?.setLocationName(addressComponent));
       })
       .catch(error => console.warn(error));
   };
@@ -107,200 +110,6 @@ const ProfessionalLocationScreen = ({navigation}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : null}
       style={{flex: 1}}>
       <SafeAreaView style={styles?.container}>
-        {/* <View style={styles?.headerConatiner}>
-        <AntDesign
-          name="left"
-          size={23}
-          style={{
-            paddingLeft: 2,
-          }}
-          onPress={() => navigation?.goBack()}
-        />
-        <View
-          style={{
-            width: '100%',
-            height: '20%',
-          }}
-        />
-        <Text style={styles?.headerText}>Select Your Location</Text>
-      </View>
-      <View
-        style={{
-          width: Display?.setWidth(100),
-          height: '88%',
-
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            width: '100%',
-            height: '4%',
-          }}
-        />
-        <View
-          style={{
-            width: Display?.setWidth(80),
-            height: Display?.setWidth(80),
-            backgroundColor: Colors?.DEFAULT_LIGHTGREY,
-            borderRadius: 5,
-          }}>
-          <Map />
-        </View>
-        <View
-          style={{
-            width: '100%',
-            height: '6%',
-          }}
-        />
-        <View style={styles?.googlePlaceAutoComplae}>
-          <GooglePlacesAutocomplete
-            placeholder="Search"
-            fetchDetails={true}
-            onPress={(data, details = null) => {
-              // 'details' is provided when fetchDetails = true
-              // console.log(data, details);
-              // setCoordinatePins({
-              //   latitude:details?.
-              // })
-              setLatitude(details?.geometry?.location?.lat);
-              setLongitude(details?.geometry?.location?.lng);
-              currentLocationName();
-              Map();
-            }}
-            query={{
-              key: 'AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8',
-              language: 'en',
-            }}
-            styles={{
-              textInputContainer: {
-                marginTop: 5,
-              },
-              textInput: {
-                height: Display?.setWidth(10),
-                color: 'black',
-                fontSize: 16,
-                backgroundColor: '#ddd',
-                borderColor: Colors?.DEFAULT_BLACK,
-                borderWidth: 0.5,
-              },
-              predefinedPlacesDescription: {
-                color: '#1faadb',
-              },
-              listView: {
-                position: 'relative',
-                zIndex: 3,
-                marginTop: 0,
-                padding: 0,
-              },
-              row: {
-                backgroundColor: '#FFFFFF',
-                height: Display?.setWidth(10),
-                flexDirection: 'row',
-              },
-              separator: {
-                height: 0.5,
-                backgroundColor: Colors?.DEFAULT_BLACK,
-              },
-              description: {},
-              loader: {
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                height: 20,
-              },
-            }}
-          />
-        </View>
-        <View style={styles?.locatonContainer}>
-
-          <View style={styles?.locatonIconContainer}>
-            <TouchableOpacity
-              onPress={() => {
-                currentLocationPermission();
-                currentLocationName();
-              }}>
-              <MaterialIcons
-                name="my-location"
-                size={25}
-                color={Colors?.DEFAULT_BLUE}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View
-          style={{
-            width: '100%',
-            height: '5%',
-          }}
-        />
-        <TextInput
-          placeholder="Enter Your Address"
-          placeholderTextColor={Colors?.DEFAULT_GREAY}
-          style={{
-            width: Display?.setWidth(80),
-            height: Display?.setWidth(12),
-            borderRadius: 4,
-            borderWidth: 1.2,
-            borderColor: Colors?.DEFAULT_LIGHTGREY,
-          }}
-        />
-        <View
-          style={{
-            width: '100%',
-            height: '4%',
-          }}
-        />
-        <View
-          style={{
-            width: '100%',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: Colors?.DEFAULT_WHITE,
-              width: Display?.setWidth(30),
-              height: Display?.setWidth(10),
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 4,
-              borderColor: Colors?.DEFAULT_BLUE,
-              borderWidth: 1,
-            }}
-            onPress={() => navigation.goBack()}>
-            <Text
-              style={{
-                fontSize: 15,
-                color: Colors?.DEFAULT_BLUE,
-              }}>
-              Cancel
-            </Text>
-          </TouchableOpacity>
-          <View
-            style={{
-              width: '8%',
-              height: '100%',
-            }}
-          />
-          <TouchableOpacity
-            style={{
-              backgroundColor: Colors?.DEFAULT_BLUE,
-              width: Display?.setWidth(30),
-              height: Display?.setWidth(10),
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 4,
-            }}>
-            <Text
-              style={{
-                fontSize: 15,
-                color: Colors?.DEFAULT_WHITE,
-              }}>
-              Ok
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View> */}
         <ScrollView>
           <View style={styles?.headerConatiner}>
             <AntDesign
@@ -330,14 +139,7 @@ const ProfessionalLocationScreen = ({navigation}) => {
                 height: '2%',
               }}
             />
-            <View
-              style={{
-                width: Display?.setWidth(80),
-                height: Display?.setWidth(80),
-                backgroundColor: Colors?.DEFAULT_LIGHTGREY,
-                borderRadius: 5,
-                alignSelf: 'center',
-              }}>
+            <View style={styles?.mapConatiner}>
               <Map />
             </View>
             <View
@@ -348,24 +150,14 @@ const ProfessionalLocationScreen = ({navigation}) => {
             />
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    width: Display?.setWidth(80),
-                    height: Display?.setWidth(10),
-                    alignSelf: 'center',
-                    borderRadius: 4,
-                    borderWidth: 1.2,
-                    borderColor: Colors?.DEFAULT_LIGHTGREY,
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}>
+                <View style={styles?.locationNameConatiner}>
                   <Text
                     style={{
                       width: '80%',
                       paddingLeft: 5,
-                    }}>
-                    Location
+                    }}
+                    numberOfLines={1}>
+                    {locationName}
                   </Text>
                   <TouchableOpacity
                     style={{
@@ -391,15 +183,7 @@ const ProfessionalLocationScreen = ({navigation}) => {
                 <TextInput
                   placeholder="Enter Your Address"
                   placeholderTextColor={Colors?.DEFAULT_GREAY}
-                  style={{
-                    width: Display?.setWidth(80),
-                    height: Display?.setWidth(13),
-                    borderRadius: 4,
-                    borderWidth: 1.2,
-                    borderColor: Colors?.DEFAULT_LIGHTGREY,
-
-                    alignSelf: 'center',
-                  }}
+                  style={styles?.adddressTextInput}
                 />
               </View>
             </TouchableWithoutFeedback>
@@ -407,14 +191,8 @@ const ProfessionalLocationScreen = ({navigation}) => {
               <GooglePlacesAutocomplete
                 placeholder="Search"
                 fetchDetails={true}
+                textInputHide={currentLocationName()}
                 onPress={(data, details = null) => {
-                  // 'details' is provided when fetchDetails = true
-                  // console.log(data, details);
-                  // setCoordinatePins({
-                  //   latitude:details?.
-                  // })
-
-                  currentLocationName();
                   dispatch(
                     GeneralAction?.setUserLocationLatitue(
                       details?.geometry?.location?.lat,
@@ -425,7 +203,9 @@ const ProfessionalLocationScreen = ({navigation}) => {
                       details?.geometry?.location?.lng,
                     ),
                   );
+
                   Map();
+                  currentLocationName();
                 }}
                 query={{
                   key: 'AIzaSyBc1HZwcIu_vV6wpq7x0Z4ZS0SZkWwbGV8',
@@ -486,24 +266,9 @@ const ProfessionalLocationScreen = ({navigation}) => {
                 justifyContent: 'center',
               }}>
               <TouchableOpacity
-                style={{
-                  backgroundColor: Colors?.DEFAULT_WHITE,
-                  width: Display?.setWidth(30),
-                  height: Display?.setWidth(10),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 4,
-                  borderColor: Colors?.DEFAULT_BLUE,
-                  borderWidth: 1,
-                }}
+                style={styles?.cancelButton}
                 onPress={() => navigation.goBack()}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: Colors?.DEFAULT_BLUE,
-                  }}>
-                  Cancel
-                </Text>
+                <Text style={styles?.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
               <View
                 style={{
@@ -511,22 +276,8 @@ const ProfessionalLocationScreen = ({navigation}) => {
                   height: '100%',
                 }}
               />
-              <TouchableOpacity
-                style={{
-                  backgroundColor: Colors?.DEFAULT_BLUE,
-                  width: Display?.setWidth(30),
-                  height: Display?.setWidth(10),
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 4,
-                }}>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: Colors?.DEFAULT_WHITE,
-                  }}>
-                  Ok
-                </Text>
+              <TouchableOpacity style={styles?.okButton}>
+                <Text style={styles?.okButton}>Ok</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -571,5 +322,58 @@ const styles = StyleSheet.create({
 
     position: 'absolute',
     alignSelf: 'center',
+  },
+  mapConatiner: {
+    width: Display?.setWidth(80),
+    height: Display?.setWidth(80),
+    backgroundColor: Colors?.DEFAULT_LIGHTGREY,
+    borderRadius: 5,
+    alignSelf: 'center',
+  },
+  locationNameConatiner: {
+    flexDirection: 'row',
+    width: Display?.setWidth(80),
+    height: Display?.setWidth(10),
+    alignSelf: 'center',
+    borderRadius: 4,
+    borderWidth: 1.2,
+    borderColor: Colors?.DEFAULT_LIGHTGREY,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  adddressTextInput: {
+    width: Display?.setWidth(80),
+    height: Display?.setWidth(13),
+    borderRadius: 4,
+    borderWidth: 1.2,
+    borderColor: Colors?.DEFAULT_LIGHTGREY,
+
+    alignSelf: 'center',
+  },
+  cancelButton: {
+    backgroundColor: Colors?.DEFAULT_WHITE,
+    width: Display?.setWidth(30),
+    height: Display?.setWidth(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    borderColor: Colors?.DEFAULT_BLUE,
+    borderWidth: 1,
+  },
+  cancelButtonText: {
+    fontSize: 15,
+    color: Colors?.DEFAULT_BLUE,
+  },
+  okButton: {
+    backgroundColor: Colors?.DEFAULT_BLUE,
+    width: Display?.setWidth(30),
+    height: Display?.setWidth(10),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+  },
+  okButtonText: {
+    fontSize: 15,
+    color: Colors?.DEFAULT_WHITE,
   },
 });

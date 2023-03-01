@@ -11,8 +11,9 @@ import {
   SafeAreaView,
   Image,
   FlatList,
+  PermissionsAndroid,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Colors from '../utils/Colors';
 import Display from '../utils/Display';
 import Fonts from '../utils/Fonts';
@@ -20,7 +21,38 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CountryFlagServices from '../services/CountryFlagServices';
 import CountryCode from '../contants/CountryCode';
 import FlagItem from '../compontent/FlagItem';
+import Geolocation from '@react-native-community/geolocation';
+import {useDispatch, useSelector} from 'react-redux';
+import GeneralAction from '../redux/action/GeneralAction';
 const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    currentLocationPermission();
+    // currentLocationName();
+  }, [currentLocationPermission]);
+  const currentLocationPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      {
+        title: 'Location Access Required',
+        message: 'HomeDot App needs to Access your location',
+      },
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      currentLocation();
+    } else {
+      setLocationPermissionError('Allow permission');
+    }
+  };
+  const currentLocation = () => {
+    Geolocation.getCurrentPosition(data => {
+      console?.log(data.coords.latitude);
+      // console?.log('longitude', data.coords.longitude);
+      // console?.log('location name', data);
+      dispatch(GeneralAction?.setUserLocationLatitue(data.coords.latitude));
+      dispatch(GeneralAction?.setUserLocationLongitue(data.coords.longitude));
+    });
+  };
   const getDropdownStyle = y => ({...styles.countryDropdown, top: y + 40});
   const [selectedCountry, setSelectedCountry] = useState(
     CountryCode.find(country => country.name === 'India'),

@@ -1,6 +1,7 @@
 const types = {
   USER_LOCAION_LATITUDE: 'USER_LOCAION_LATITUDE',
   USER_LOCAION_LONGITUDE: 'USER_LOCAION_LONGITUDE',
+  LOCATION_NAME: 'LOCATION_NAME',
 };
 const setUserLocationLatitue = userLocationLatitue => {
   return {
@@ -14,8 +15,15 @@ const setUserLocationLongitue = userLocationLongitue => {
     payload: userLocationLongitue,
   };
 };
+const setLocationName = locationname => {
+  return {
+    type: types?.LOCATION_NAME,
+    payload: locationname,
+  };
+};
 export default {
   types,
   setUserLocationLatitue,
   setUserLocationLongitue,
+  setLocationName,
 };
