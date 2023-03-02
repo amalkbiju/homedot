@@ -25,7 +25,7 @@ const ProfessionalRegisterScreen = ({navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     currentLocationPermission();
-    // currentLocationName();
+    currentLocationName();
   }, [currentLocationPermission, currentLocationName]);
   const currentLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(

@@ -24,11 +24,11 @@ import FlagItem from '../compontent/FlagItem';
 import Geolocation from '@react-native-community/geolocation';
 import {useDispatch, useSelector} from 'react-redux';
 import GeneralAction from '../redux/action/GeneralAction';
+import Geocoder from 'react-native-geocoding';
 const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     currentLocationPermission();
-    // currentLocationName();
   }, [currentLocationPermission]);
   const currentLocationPermission = async () => {
     const granted = await PermissionsAndroid.request(
@@ -46,13 +46,18 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
   };
   const currentLocation = () => {
     Geolocation.getCurrentPosition(data => {
-      console?.log(data.coords.latitude);
-      // console?.log('longitude', data.coords.longitude);
-      // console?.log('location name', data);
       dispatch(GeneralAction?.setUserLocationLatitue(data.coords.latitude));
       dispatch(GeneralAction?.setUserLocationLongitue(data.coords.longitude));
     });
   };
+  const latitude = useSelector(
+    state => state?.generalState?.userLocationLatitue,
+  );
+  const longitude = useSelector(
+    state => state?.generalState?.userLocationLongitue,
+  );
+  console.log('start lat', latitude);
+  console.log('Start lon', longitude);
   const getDropdownStyle = y => ({...styles.countryDropdown, top: y + 40});
   const [selectedCountry, setSelectedCountry] = useState(
     CountryCode.find(country => country.name === 'India'),
@@ -123,11 +128,11 @@ const LoginOrRegisterUsingNumberScreen = ({navigation}) => {
                 <Text style={styles?.countryDropDownDialCodeText}>
                   {selectedCountry?.dial_code}
                 </Text>
-                <MaterialIcons
+                {/* <MaterialIcons
                   name="keyboard-arrow-down"
                   size={18}
                   color={Colors?.DEFAULT_BLACK}
-                />
+                /> */}
               </TouchableOpacity>
               <TextInput keyboardType="number-pad" style={styles?.textInput} />
             </View>
@@ -268,7 +273,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   countrySelectDropButton: {
-    width: '27%',
+    width: '30%',
     height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -279,5 +284,6 @@ const styles = StyleSheet.create({
     color: Colors?.DEFAULT_BLACK,
     paddingLeft: 2,
     marginLeft: 2,
+    width: '60%',
   },
 });
