@@ -20,6 +20,7 @@ const UserOrProfessional = ({navigation}) => {
   const [showUserView, setShowUserView] = useState(false);
   const [showProfessionalView, setShowProfessionalView] = useState(false);
   const [userTextComplete, setUserTextComplete] = useState(false);
+  const [userProfessionalSpace, setUserProfessionalSpace] = useState(true);
   const animation = useSharedValue({
     width: Display?.setWidth(40),
     height: Display?.setWidth(40),
@@ -36,6 +37,7 @@ const UserOrProfessional = ({navigation}) => {
       }),
     };
   });
+  console?.log('space', userProfessionalSpace);
   return (
     <View style={styles?.container}>
       <StatusBar backgroundColor={Colors?.DEFAULT_WHITE} />
@@ -47,6 +49,7 @@ const UserOrProfessional = ({navigation}) => {
               height: Display?.setHeight(80),
             };
             setUserButtomClick(true);
+            setUserProfessionalSpace(false);
           }}>
           <Animated.View style={[styles.box, animationStyle]}>
             {userButtomClick ? (
@@ -101,8 +104,8 @@ const UserOrProfessional = ({navigation}) => {
           </Animated.View>
         </TouchableOpacity>
       )}
-      <View style={{width: '100%', height: '6%'}} />
 
+      {userProfessionalSpace && <View style={{width: '100%', height: '6%'}} />}
       {userButtomClick ? null : (
         <TouchableOpacity
           onPress={() => {
@@ -111,6 +114,7 @@ const UserOrProfessional = ({navigation}) => {
               height: Display?.setHeight(80),
             };
             setProfessionalButtonClick(true);
+            setUserProfessionalSpace(false);
           }}>
           <Animated.View style={[styles.box, animationStyle]}>
             {ProfessionalButtonClick ? (
