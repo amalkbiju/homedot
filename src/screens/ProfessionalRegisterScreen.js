@@ -207,7 +207,9 @@ const ProfessionalRegisterScreen = ({navigation}) => {
                   height: '3%',
                 }}
               />
-              <TouchableOpacity style={styles?.button}>
+              <TouchableOpacity
+                style={styles?.button}
+                onPress={() => navigation.navigate('HomeScreen')}>
                 <Text style={styles?.buttonText}>Sign up</Text>
               </TouchableOpacity>
             </View>

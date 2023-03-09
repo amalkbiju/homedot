@@ -2,6 +2,7 @@ import {useRef, useState, useEffect} from 'react';
 import {StyleSheet, Text} from 'react-native';
 import Colors from './Colors';
 import Display from './Display';
+import Fonts from './Fonts';
 
 export default function AnimatedTyping(props) {
   let [text, setText] = useState('');
@@ -97,8 +98,9 @@ export default function AnimatedTyping(props) {
 let styles = StyleSheet.create({
   text: {
     color: Colors?.DEFAULT_WHITE,
-    fontSize: 18,
+    fontSize: 15,
     alignSelf: 'center',
     width: Display?.setWidth(75),
+    fontFamily: Fonts?.POPPINS,
   },
 });

@@ -277,7 +277,7 @@ const ProfessionalLocationScreen = ({navigation}) => {
                 }}
               />
               <TouchableOpacity style={styles?.okButton}>
-                <Text style={styles?.okButton}>Ok</Text>
+                <Text style={styles?.okButtonText}>Ok</Text>
               </TouchableOpacity>
             </View>
           </View>

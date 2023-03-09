@@ -16,6 +16,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import AnimatedTyping from '../utils/AnimationType';
+import Fonts from '../utils/Fonts';
 const UserOrProfessional = ({navigation}) => {
   const [showUserView, setShowUserView] = useState(false);
   const [showProfessionalView, setShowProfessionalView] = useState(false);
@@ -97,7 +98,7 @@ const UserOrProfessional = ({navigation}) => {
                   size={35}
                   color={Colors?.DEFAULT_WHITE}
                 />
-                <View style={{width: '100%', height: '2%'}} />
+                <View style={{width: '100%', height: '5%'}} />
                 <Text style={styles?.buttonText}>User</Text>
               </View>
             )}
@@ -163,7 +164,7 @@ const UserOrProfessional = ({navigation}) => {
                   color={Colors?.DEFAULT_WHITE}
                   style={styles?.buttonIcon}
                 />
-                <View style={{width: '100%', height: '2%'}} />
+                <View style={{width: '100%', height: '5%'}} />
                 <Text style={styles?.buttonText}>Professional</Text>
               </View>
             )}
@@ -219,6 +220,7 @@ const UserOrProfessional = ({navigation}) => {
                 style={{
                   fontSize: 20,
                   color: Colors?.DEFAULT_BLUE,
+                  fontFamily: Fonts?.POPPINS,
                 }}>
                 User
               </Text>
@@ -281,7 +283,8 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 15,
     color: Colors?.DEFAULT_WHITE,
-    fontWeight: '900',
+
+    fontFamily: Fonts?.POPPINS,
   },
   buttonIcon: {
     alignSelf: 'center',
@@ -304,9 +307,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   animationViewHeaderText: {
-    fontSize: 20,
+    fontSize: 18,
     color: Colors?.DEFAULT_WHITE,
     alignSelf: 'center',
+    fontFamily: Fonts?.POPPINS,
   },
   animationTypingTextConatiner: {
     width: '100%',
@@ -325,7 +329,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   animatedViewBecomeButtonText: {
-    fontSize: 15,
+    fontSize: 14,
     color: Colors?.DEFAULT_BLUE,
+    fontFamily: Fonts?.POPPINS,
   },
 });

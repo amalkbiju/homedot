@@ -13,29 +13,23 @@ import {
 import React from 'react';
 import Display from '../utils/Display';
 import Colors from '../utils/Colors';
-
-const ForgotPasswordScreen = ({navigation}) => {
+const ForgotPasswordOtpVarifiactionScreen = ({navigation}) => {
   return (
     <View style={styles?.container}>
-      <View
-        style={styles?.mainContainer}>
-        <Text
-          style={styles?.varificationText}>
-          Verification required
-        </Text>
+      <View style={styles?.mainContainer}>
+        <Text style={styles?.varificationText}>Verification required</Text>
         <View
           style={{
             width: '100%',
             height: '3%',
           }}
         />
-        <Text
-          style={styles?.sentOtpText}>
+        <Text style={styles?.sentOtpText}>
           To continue, complete this verification step. We've sent an OTP to the
           email or Phone ***********. Please enter it below to complete
           verification.{' '}
         </Text>
-       
+
         <View style={styles?.textInputMainConatiner}>
           <TextInput
             style={styles?.textInput}
@@ -61,8 +55,7 @@ const ForgotPasswordScreen = ({navigation}) => {
             keyboardType="number-pad"
           />
         </View>
-     
-       
+
         <TouchableOpacity
           style={styles?.button}
           onPress={() => navigation.navigate('NewPasswordScreen')}>
@@ -73,13 +66,12 @@ const ForgotPasswordScreen = ({navigation}) => {
           <Text style={styles?.dontReceiveOtpText}>Don't recevice OTP </Text>
           <Text style={styles?.resentText}>Resent OTP</Text>
         </View>
-     
       </View>
     </View>
   );
 };
 
-export default ForgotPasswordScreen;
+export default ForgotPasswordOtpVarifiactionScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -95,7 +87,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation:10
+    elevation: 10,
   },
   varificationText: {
     fontSize: 15,
@@ -105,8 +97,7 @@ const styles = StyleSheet.create({
   sentOtpText: {
     fontSize: 12,
     color: Colors?.DEFAULT_BLACK,
-    width:'60%'
-    
+    width: '60%',
   },
   textInputMainConatiner: {
     width: '100%',
@@ -114,7 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
 
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   textInput: {
     backgroundColor: Colors?.DEFAULT_WHITE,
@@ -128,12 +119,12 @@ const styles = StyleSheet.create({
   },
   dontReceiveOtpText: {
     fontSize: 12,
-    
+
     color: Colors?.DEFAULT_GREAY,
   },
   resentText: {
     fontSize: 12,
-  
+
     color: Colors?.DEFAULT_BLUE,
   },
   button: {
@@ -146,7 +137,7 @@ const styles = StyleSheet.create({
   },
   bottonText: {
     fontSize: 13,
-  
+
     color: Colors?.DEFAULT_WHITE,
   },
 });

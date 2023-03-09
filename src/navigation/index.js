@@ -2,20 +2,23 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SplashScreen from '../screens/SplashScreen';
-import LoginOrRegisterUsingNumberScreen from '../screens/LoginOrRegisterUsingNumberScreen';
-import ExistingUserScreen from '../screens/ExistingUserScreen';
-import NonExstingUserOtpScreen from '../screens/NonExstingUserOtpScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
-import NewPasswordScreen from '../screens/NewPasswordScreen';
-import ForgotPasswordOtpVvarifiactionScreen from '../screens/ForgotPasswordOtpVvarifiactionScreen';
-import ForgotPasswordOtpToLogin from '../screens/ForgotPasswordOtpToLogin';
-import LoginOrRegisterUsingEmailScreen from '../screens/LoginOrRegisterUsingEmailScreen';
-import UserOrProfessional from '../screens/UserOrProfessional';
-import UserRegistrationScreen from '../screens/UserRegistrationScreen';
-import ProfessionalRegisterScreen from '../screens/ProfessionalRegisterScreen';
-import ProfessionalLocationScreen from '../screens/locationscreens/ProfessionalLocationScreen';
-import UserLocationScreen from '../screens/locationscreens/UserLocationScreen';
+import {
+  SplashScreen,
+  LoginOrRegisterUsingNumberScreen,
+  LoginOrRegisterUsingEmailScreen,
+  ExistingUserScreen,
+  NonExstingUserOtpScreen,
+  ForgotPasswordScreen,
+  ForgotPasswordOtpVarifiactionScreen,
+  ForgotPasswordOtpToLogin,
+  NewPasswordScreen,
+  UserOrProfessional,
+  UserRegistrationScreen,
+  ProfessionalRegisterScreen,
+  UserLocationScreen,
+  ProfessionalLocationScreen,
+} from '../screens/Index';
+import {HomeScreen} from '../screens/home/Index';
 const stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
@@ -40,7 +43,7 @@ const Navigator = () => {
         />
         <stack.Screen
           name="ForgotPasswordOtpVvarifiactionScreen"
-          component={ForgotPasswordOtpVvarifiactionScreen}
+          component={ForgotPasswordOtpVarifiactionScreen}
         />
         <stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
         <stack.Screen
@@ -71,6 +74,7 @@ const Navigator = () => {
           name="UserLocationScreen"
           component={UserLocationScreen}
         />
+        <stack.Screen name="HomeScreen" component={HomeScreen} />
       </stack.Navigator>
     </NavigationContainer>
   );

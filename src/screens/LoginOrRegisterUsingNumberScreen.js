@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   countryDropdown: {
     backgroundColor: Colors.DEFAULT_LIGHTGREY,
     position: 'absolute',
-    width: Display.setWidth(70),
+    width: Display.setWidth(65),
     height: Display.setHeight(40),
     marginLeft: 20,
     borderRadius: 4,
