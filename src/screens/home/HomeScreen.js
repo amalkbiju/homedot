@@ -37,31 +37,30 @@ const HomeScreen = () => {
           <TouchableOpacity style={styles?.topCards}>
             <Image
               source={require('../../assets/images/Interior.png')}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: 6,
-              }}
+              style={styles?.topCardImage}
             />
-            <View
-              style={{
-                backgroundColor: '#d3d3d3',
-                width: '100%',
-                height: '40%',
-                position: 'absolute',
-                borderTopLeftRadius: 7,
-                borderTopRightRadius: 7,
-                borderBottomLeftRadius: 5,
-                borderBottomRightRadius: 5,
-                marginBottom: 2,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text style={{fontSize: 15}}>Interior Design</Text>
+            <View style={styles?.topCardTextContainer}>
+              <Text style={styles?.topCardText}>Interior Design</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles?.topCards}></TouchableOpacity>
-          <TouchableOpacity style={styles?.topCards}></TouchableOpacity>
+          <TouchableOpacity style={styles?.topCards}>
+            <Image
+              source={require('../../assets/images/Exterior.jpg')}
+              style={styles?.topCardImage}
+            />
+            <View style={styles?.topCardTextContainer}>
+              <Text style={styles?.topCardText}>Exterior Design</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles?.topCards}>
+            <Image
+              source={require('../../assets/images/architect.jpeg')}
+              style={styles?.topCardImage}
+            />
+            <View style={styles?.topCardTextContainer}>
+              <Text style={styles?.topCardText}>Architect</Text>
+            </View>
+          </TouchableOpacity>
           <View style={{width: '1%', height: '100%'}} />
         </View>
       </ScrollView>
@@ -96,5 +95,27 @@ const styles = StyleSheet.create({
     height: Display?.setWidth(26),
     borderRadius: 6,
     justifyContent: 'flex-end',
+  },
+  topCardTextContainer: {
+    backgroundColor: 'rgba(50, 50, 50, 0.4)',
+    width: '100%',
+    height: '40%',
+    position: 'absolute',
+    borderTopLeftRadius: 7,
+    borderTopRightRadius: 7,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    marginBottom: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  topCardText: {
+    fontSize: 14.5,
+    color: Colors?.DEFAULT_WHITE,
+  },
+  topCardImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 6,
   },
 });
